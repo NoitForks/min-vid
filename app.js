@@ -2,6 +2,9 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const AppView = require('./components/app-view');
 
+// global listeners
+require('./client-lib/nsa');
+
 const defaultData = {
   id: '',
   src: '',
@@ -16,7 +19,8 @@ const defaultData = {
   progress: 0.001, // force progress element to start out empty
   playing: false,
   volume: '0.5',
-  strings: {}
+  strings: {},
+  player: '' // player: 'youtube', 'video', 'audio'
 };
 
 window.AppData = new Proxy(defaultData, {
